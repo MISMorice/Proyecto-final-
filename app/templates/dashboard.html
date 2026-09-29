@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DScraping Bot Dashboard</title>
+</head>
+<body>
+    <h1>Scraping Bot</h1>
+
+    <form action="/scrape" method="POST">
+        <button type="submit">
+            Execute Scraping
+        </button>
+    </form>
+
+    <hr>
+    
+    <h2>Results</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>URL</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- for item in items | Map function in Javascript -->
+             {% for item in items %}
+
+            <tr>
+                <td>{{ item["id"] }}</td>
+                <td>{{ item["title"] }}</td>
+                <td>{{ item["url"] }}</td>
+                <td>{{ item["scraped_at"] }}</td>
+            </tr>
+            {% endfor %}
+            <!-- here ends the map function -->
+        </tbody>
+    </table>
+</body>
+</html>
